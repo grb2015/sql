@@ -1,0 +1,5 @@
+show database;
+use test;
+show tables;
+select * from Products;
+
