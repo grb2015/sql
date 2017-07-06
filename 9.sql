@@ -18,7 +18,8 @@ select sum(quantity)as item_ordered from OrderItems where order_num= 20005;
 select AVG(DISTINCT prod_price) as avg_price from Products where vend_id='DLL01';
 
 
--- 组合聚集 求所有的商品数，最大商品价格，最小商品价格，平均价格:w
+-- 组合聚集 求所有的商品数，最大商品价格，最小商品价格，平均价格
 select count(*),min(prod_price),max(prod_price),min(prod_price),avg(prod_price) from Products;
+-- 在上面的语句中，重点关注一下 select count(*) from Products; 这个是求所有的行数,也就是所有的商品数!
 
 
