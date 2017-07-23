@@ -18,7 +18,7 @@
 	--- 当然，我们一起求啊，
 	select count(*) from Orders where Orders.cust_id = Customers.cust_id ;
 		---但是这个出错了!ERROR 1054 (42S22): Unknown column 'Customers.cust_id' in 'where clause'
-		--- 我理解这个cust_id是多少呢?数据库它并不直到。所以我们还需要一个select cust_id from Customers来得到一个cust_id的list
+		--- 我理解这个cust_id是多少呢?数据库它并不知道。所以我们还需要一个select cust_id from Customers来得到一个cust_id的list
 	---最终正确的. 这个不是很好的做法，更容易理解的见后面的join用法
 	select cust_name ,(select count(*) from Orders where Orders.cust_id = Customers.cust_id) from Customers;
 
