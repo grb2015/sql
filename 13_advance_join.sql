@@ -50,4 +50,13 @@ select cust_id from Orders as O,OrderItems as OI  where  O.order_num=OI.order_nu
 
 
         --- 4.连接与聚集函数的结合
-            --- 要检索所有每个顾客下的订单数
+            --- 要检索所有每个顾客下的订单数 ,这个前面已经做过了
+
+            --- 这个使用的是内连接，不统计空的
+            select cust_name ,count(*) from Orders,Customers  where Orders.cust_id = Customers.cust_id group by Customers.cust_id;
+        
+            --- 外连，统计空的
+
+        
+
+        
