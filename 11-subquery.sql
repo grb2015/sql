@@ -1,6 +1,6 @@
 --- 本章开始在多个表中查找,用到子查询，即一个select的结果作为另一个select的条件
 
---- 求订购了RGAN01这种商品的所有顾客。
+--- 1.  求订购了RGAN01这种商品的所有顾客。
 	---用我们学过的知识，得分两步
 	---第一步，在OrderIterms表中求出购买了RGAN01的订单号
 	select order_num from OrderItems where prod_id='RGAN01';
@@ -11,9 +11,11 @@
 	select cust_id from Orders where order_num IN (select order_num from OrderItems where prod_id = 'RGAN01');
 
 
---- 求Customers表中每个客户的订单总数.需要注意的是，直接在orders表中根据cust_id来统计不正确，因为可以Customers中的顾客只是orders表中cust_id的一部分。一个子集而已
+---2.  求Customers表中每个客户的订单总数.需要注意的是，直接在orders表中根据cust_id来统计不正确，因为可以Customers中的顾客只是orders表中cust_id的一部分。一个子集而已
 
-	---我们可以一个的求，比如,数据量很大时跪！
+    --- select cust_id ,count(*) from Orders group by cust_id;  ---所以这个是不完全正确的。
+    
+	---我们可以一个一个的求，比如,数据量很大时跪！
 	select count(*) from Orders where Orders.cust_id = '1000000001';
 	--- 当然，我们一起求啊，
 	select count(*) from Orders where Orders.cust_id = Customers.cust_id ;
