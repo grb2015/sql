@@ -14,7 +14,12 @@
     --- 2. 上一节的子查询实现   
             select cust_name ,(select count(*) from Orders where Orders.cust_id = Customers.cust_id) from Customers;
     ---    本节的连接实现  
-                --这个还不怎么好弄!留给以后
+                --这个还不怎么好弄!留给以后.看了连接中使用聚集函数可以解决了:
+
+                --- 注意这个不统计空的，要统计空的要通过外连
+
+                select cust_name ,count(*) from Orders,Customers  where Orders.cust_id = Customers.cust_id group by Customers.cust_id;
+
 
 
 
