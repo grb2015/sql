@@ -19,6 +19,9 @@ select prod_id ,vend_id from Products where vend_id != 'DLL01';
 -- 4. is null		(这里是从customers表中查)
 select cust_id,cust_email from Customers where cust_email IS NULL;
 
+--renbin.guo added 2017-10-31 
+select cust_id,cust_email from Customers where cust_email is not  NULL;
+
 
 
 

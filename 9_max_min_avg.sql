@@ -25,4 +25,13 @@ select AVG(DISTINCT prod_price) as avg_price from Products where vend_id='DLL01'
 select count(*),min(prod_price),max(prod_price),avg(prod_price) from Products;
 -- 在上面的语句中，重点关注一下 select count(*) from Products; 这个是求所有的行数,也就是所有的商品数!
 
+-- renbin.guo  added 2017-10-31
+-- 请列出最低价的products是哪些?
+-- 错误的写法 select prod_name ,prod_price from `Products` where prod_price=min(prod_price); 
+-- 正确的写法，使用子查询
+select prod_name ,prod_price from `Products` where prod_price = (select min(prod_price) from `Products`);
+
+
+
+
 
