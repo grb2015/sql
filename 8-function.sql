@@ -1,4 +1,4 @@
--- Ğ¡Ğ´×ª´óĞ´º¯Êı UPPER
+-- å°å†™è½¬å¤§å†™å‡½æ•° UPPER
 select vend_name ,UPPER(vend_name) as vend_name_upcase from Vendors;
---²éÕÒ2012ÄêµÄËùÓĞ¶©µ¥,yearÒ²¿ÉÒÔ
+--æŸ¥æ‰¾2012å¹´çš„æ‰€æœ‰è®¢å•,yearä¹Ÿå¯ä»¥
 select order_num from Orders where YEAR(order_date)=2012;

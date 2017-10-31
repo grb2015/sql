@@ -1,11 +1,11 @@
---ÕâÒ»ÕÂÑ§Ï°¾Û¼¯
---Òª×¢Òâhaving ºÍ where µÄÇø±ð£¬havingÊÇÔÚÊý¾Ý·Ö×éºó¹ýÂÇ£¬¶øwhereÊÇÔÚÇ°
+--è¿™ä¸€ç« å­¦ä¹ èšé›†
+--è¦æ³¨æ„having å’Œ where çš„åŒºåˆ«ï¼Œhavingæ˜¯åœ¨æ•°æ®åˆ†ç»„åŽè¿‡è™‘ï¼Œè€Œwhereæ˜¯åœ¨å‰
 
--- Çó¸÷¹©Ó¦ÉÌ¹©Ó¦µÄÉÌÆ·ÖÖÀàÊý £¬½«ProdectsÒÔvend_id¾Û¼¯
+-- æ±‚å„ä¾›åº”å•†ä¾›åº”çš„å•†å“ç§ç±»æ•° ï¼Œå°†Prodectsä»¥vend_idèšé›†
 select count(*) from Products group by vend_id;
 select vend_id,count(*) from Products group by vend_id;
 
---Order±íÖÐÇóÓÐÁ½¸ö¼°ÒÔÉÏµÄ¶©µ¥µÄ¿Í»§(having),½«OrdersÒÔcust_id¾Û¼¯
+--Orderè¡¨ä¸­æ±‚æœ‰ä¸¤ä¸ªåŠä»¥ä¸Šçš„è®¢å•çš„å®¢æˆ·(having),å°†Ordersä»¥cust_idèšé›†
  select cust_id from Orders group by cust_id having count(*)>=2;
 
 

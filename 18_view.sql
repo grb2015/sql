@@ -1,12 +1,12 @@
---- ÔÚµÚ12¿ÎÊ¹ÓÃÁ¬½ÓÀ´ÊµÏÖÁË: Çó¶©¹ºÁËRGAN01µÄËùÓĞ¹Ë¿Íid 
+--- åœ¨ç¬¬12è¯¾ä½¿ç”¨è¿æ¥æ¥å®ç°äº†: æ±‚è®¢è´­äº†RGAN01çš„æ‰€æœ‰é¡¾å®¢id 
 select cust_id from Orders ,OrderItems  where  Orders.order_num=OrderItems.order_num and OrderItems.prod_id = 'RGAN01';
 
 
---- ±¾¿ÎÑ§Ï°ÊÓÍ¼£¬Ëü½«¼ò»¯²éÑ¯¡£
---- ËüÊÇÒ»¸ö²éÑ¯£¬²¢²»°üº¬¾ßÌåµÄ±íµÄÊı¾İ£¬Ò²½ĞĞé±í
+--- æœ¬è¯¾å­¦ä¹ è§†å›¾ï¼Œå®ƒå°†ç®€åŒ–æŸ¥è¯¢ã€‚
+--- å®ƒæ˜¯ä¸€ä¸ªæŸ¥è¯¢ï¼Œå¹¶ä¸åŒ…å«å…·ä½“çš„è¡¨çš„æ•°æ®ï¼Œä¹Ÿå«è™šè¡¨
 
---- Ëü·µ»ØµÄÊÇ¶©¹ºÁËÈÎÒâ²úÆ·µÄ¹Ë¿Í¡£
+--- å®ƒè¿”å›çš„æ˜¯è®¢è´­äº†ä»»æ„äº§å“çš„é¡¾å®¢ã€‚
 create view ProductCustomers as   select cust_id from Orders ,OrderItems  where  Orders.order_num=OrderItems.order_num
 
----²éÕÒ¹ºÂòÁËRGAN01µÄ¹Ë¿Íid
+---æŸ¥æ‰¾è´­ä¹°äº†RGAN01çš„é¡¾å®¢id
 select cust_id from  ProductCustomers where prod_id = 'RGAN01';

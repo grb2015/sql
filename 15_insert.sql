@@ -1,22 +1,22 @@
---- Êı¾İ¿âµÄÔöÉ¾²é¸Ä£¬ÎÒÃÇÖ®Ç°Ò»Ö±ÔÚÑ§Ï°'²é'£¬ÏÖÔÚÀ´Ñ§Ï°'Ôö'
+--- æ•°æ®åº“çš„å¢åˆ æŸ¥æ”¹ï¼Œæˆ‘ä»¬ä¹‹å‰ä¸€ç›´åœ¨å­¦ä¹ 'æŸ¥'ï¼Œç°åœ¨æ¥å­¦ä¹ 'å¢'
 
 
----ÇëÔÚcustomers±íÖĞÔö¼ÓÒ»ĞĞÊı¾İ,ÓĞĞÂµÄ¹Ë¿ÍÀ´ÁË!µ«ÊÇËüÃ»ÓĞÌá¹©cust_country,cust_contactºÍcust_emailÏî
+---è¯·åœ¨customersè¡¨ä¸­å¢åŠ ä¸€è¡Œæ•°æ®,æœ‰æ–°çš„é¡¾å®¢æ¥äº†!ä½†æ˜¯å®ƒæ²¡æœ‰æä¾›cust_country,cust_contactå’Œcust_emailé¡¹
 
 insert into Customers(cust_id ,cust_name,cust_address,   cust_city,     cust_state,cust_zip)
             values('1000000006',       'Toy Land','123 Any Steet','New York',  'NY',       '11111');
 
 
---- ²åÈë¼ìË÷³öµÄÊı¾İ  --ÏÖĞèÒª½«ÁíÒ»±íCustNewÖĞµÄ¹Ë¿ÍºÏ²¢µ½customersÖĞ.
+--- æ’å…¥æ£€ç´¢å‡ºçš„æ•°æ®  --ç°éœ€è¦å°†å¦ä¸€è¡¨CustNewä¸­çš„é¡¾å®¢åˆå¹¶åˆ°customersä¸­.
 insert into Customers(cust_id,cust_city,cust_name,cust_state,cust_address,cust_email,cust_contact) select (cust_id,cust_city,cust_name,cust_state,cust_address,cust_email,cust_contact)from CustNew;
 
---- ¸´ÖÆ±í  Çë¸´ÖÆCustomers±í£¬ÃüÃûÎªCustCopy
+--- å¤åˆ¶è¡¨  è¯·å¤åˆ¶Customersè¡¨ï¼Œå‘½åä¸ºCustCopy
 
 select * into CustCopy from Customers;
---mysqlÖĞÊ¹ÓÃ
+--mysqlä¸­ä½¿ç”¨
 create table CustCopy as select * from Customers;
 
---- Èç¹ûÖ»Ïë¸´ÖÆ²¿·ÖÁĞ£¬¿ÉÒÔÃ÷È·¸ø³öÁĞÃû
+--- å¦‚æœåªæƒ³å¤åˆ¶éƒ¨åˆ†åˆ—ï¼Œå¯ä»¥æ˜ç¡®ç»™å‡ºåˆ—å
 select cust_city,cust_contact,cust_id into CustCopy from Customers;
 create table CustCopy_2  as select cust_city,cust_contact,cust_id from Customers;
 

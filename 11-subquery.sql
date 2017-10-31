@@ -1,27 +1,27 @@
---- ±¾ÕÂ¿ªÊ¼ÔÚ¶à¸ö±íÖĞ²éÕÒ,ÓÃµ½×Ó²éÑ¯£¬¼´Ò»¸öselectµÄ½á¹û×÷ÎªÁíÒ»¸öselectµÄÌõ¼ş
+--- æœ¬ç« å¼€å§‹åœ¨å¤šä¸ªè¡¨ä¸­æŸ¥æ‰¾,ç”¨åˆ°å­æŸ¥è¯¢ï¼Œå³ä¸€ä¸ªselectçš„ç»“æœä½œä¸ºå¦ä¸€ä¸ªselectçš„æ¡ä»¶
 
---- 1.  Çó¶©¹ºÁËRGAN01ÕâÖÖÉÌÆ·µÄËùÓĞ¹Ë¿Í¡£
-	---ÓÃÎÒÃÇÑ§¹ıµÄÖªÊ¶£¬µÃ·ÖÁ½²½
-	---µÚÒ»²½£¬ÔÚOrderIterms±íÖĞÇó³ö¹ºÂòÁËRGAN01µÄ¶©µ¥ºÅ
+--- 1.  æ±‚è®¢è´­äº†RGAN01è¿™ç§å•†å“çš„æ‰€æœ‰é¡¾å®¢ã€‚
+	---ç”¨æˆ‘ä»¬å­¦è¿‡çš„çŸ¥è¯†ï¼Œå¾—åˆ†ä¸¤æ­¥
+	---ç¬¬ä¸€æ­¥ï¼Œåœ¨OrderItermsè¡¨ä¸­æ±‚å‡ºè´­ä¹°äº†RGAN01çš„è®¢å•å·
 	select order_num from OrderItems where prod_id='RGAN01';
-	---µÚ¶ş²½£¬¸ù¾İÉÏÃæµÄ¶©µ¥ºÅÔÙÔÚOrders±íÖĞÇó³ö¶ÔÓ¦µÄcust_id
+	---ç¬¬äºŒæ­¥ï¼Œæ ¹æ®ä¸Šé¢çš„è®¢å•å·å†åœ¨Ordersè¡¨ä¸­æ±‚å‡ºå¯¹åº”çš„cust_id
 	select cust_id from Orders where (order_num='20007' or order_num='20008');
 
-	--- ¿ÉÒÔ°ÑÁ½¾äºÏ³ÉÒ»¾ä,¼´µÚÒ»²½µÄ½á¹û×÷ÎªµÚ¶ş²½µÄÌõ¼ş
+	--- å¯ä»¥æŠŠä¸¤å¥åˆæˆä¸€å¥,å³ç¬¬ä¸€æ­¥çš„ç»“æœä½œä¸ºç¬¬äºŒæ­¥çš„æ¡ä»¶
 	select cust_id from Orders where order_num IN (select order_num from OrderItems where prod_id = 'RGAN01');
 
 
----2.  ÇóCustomers±íÖĞÃ¿¸ö¿Í»§µÄ¶©µ¥×ÜÊı.ĞèÒª×¢ÒâµÄÊÇ£¬Ö±½ÓÔÚorders±íÖĞ¸ù¾İcust_idÀ´Í³¼Æ²»ÕıÈ·£¬ÒòÎª¿ÉÒÔCustomersÖĞµÄ¹Ë¿ÍÖ»ÊÇorders±íÖĞcust_idµÄÒ»²¿·Ö¡£Ò»¸ö×Ó¼¯¶øÒÑ
+---2.  æ±‚Customersè¡¨ä¸­æ¯ä¸ªå®¢æˆ·çš„è®¢å•æ€»æ•°.éœ€è¦æ³¨æ„çš„æ˜¯ï¼Œç›´æ¥åœ¨ordersè¡¨ä¸­æ ¹æ®cust_idæ¥ç»Ÿè®¡ä¸æ­£ç¡®ï¼Œå› ä¸ºå¯ä»¥Customersä¸­çš„é¡¾å®¢åªæ˜¯ordersè¡¨ä¸­cust_idçš„ä¸€éƒ¨åˆ†ã€‚ä¸€ä¸ªå­é›†è€Œå·²
 
-    --- select cust_id ,count(*) from Orders group by cust_id;  ---ËùÒÔÕâ¸öÊÇ²»ÍêÈ«ÕıÈ·µÄ¡£
+    --- select cust_id ,count(*) from Orders group by cust_id;  ---æ‰€ä»¥è¿™ä¸ªæ˜¯ä¸å®Œå…¨æ­£ç¡®çš„ã€‚
     
-	---ÎÒÃÇ¿ÉÒÔÒ»¸öÒ»¸öµÄÇó£¬±ÈÈç,Êı¾İÁ¿ºÜ´óÊ±¹ò£¡
+	---æˆ‘ä»¬å¯ä»¥ä¸€ä¸ªä¸€ä¸ªçš„æ±‚ï¼Œæ¯”å¦‚,æ•°æ®é‡å¾ˆå¤§æ—¶è·ªï¼
 	select count(*) from Orders where Orders.cust_id = '1000000001';
-	--- µ±È»£¬ÎÒÃÇÒ»ÆğÇó°¡£¬
+	--- å½“ç„¶ï¼Œæˆ‘ä»¬ä¸€èµ·æ±‚å•Šï¼Œ
 	select count(*) from Orders where Orders.cust_id = Customers.cust_id ;
-		---µ«ÊÇÕâ¸ö³ö´íÁË!ERROR 1054 (42S22): Unknown column 'Customers.cust_id' in 'where clause'
-		--- ÎÒÀí½âÕâ¸öcust_idÊÇ¶àÉÙÄØ?Êı¾İ¿âËü²¢²»ÖªµÀ¡£ËùÒÔÎÒÃÇ»¹ĞèÒªÒ»¸öselect cust_id from CustomersÀ´µÃµ½Ò»¸öcust_idµÄlist
-	---×îÖÕÕıÈ·µÄ. Õâ¸ö²»ÊÇºÜºÃµÄ×ö·¨£¬¸üÈİÒ×Àí½âµÄ¼ûºóÃæµÄjoinÓÃ·¨
+		---ä½†æ˜¯è¿™ä¸ªå‡ºé”™äº†!ERROR 1054 (42S22): Unknown column 'Customers.cust_id' in 'where clause'
+		--- æˆ‘ç†è§£è¿™ä¸ªcust_idæ˜¯å¤šå°‘å‘¢?æ•°æ®åº“å®ƒå¹¶ä¸çŸ¥é“ã€‚æ‰€ä»¥æˆ‘ä»¬è¿˜éœ€è¦ä¸€ä¸ªselect cust_id from Customersæ¥å¾—åˆ°ä¸€ä¸ªcust_idçš„list
+	---æœ€ç»ˆæ­£ç¡®çš„. è¿™ä¸ªä¸æ˜¯å¾ˆå¥½çš„åšæ³•ï¼Œæ›´å®¹æ˜“ç†è§£çš„è§åé¢çš„joinç”¨æ³•
 	select cust_name ,(select count(*) from Orders where Orders.cust_id = Customers.cust_id) from Customers;
 
 

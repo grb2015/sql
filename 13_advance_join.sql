@@ -1,15 +1,15 @@
---- ±¾ÕÂÑ§Ï°ÆäËüµÄÁ¬½Ó·½Ê½(ÉÏÒ»½ÚÑ§Ï°µÄÁ¬½ÓÆäÊµ³ÆÄÚÁ¬½Ó),»¹Ñ§Ï°ÔÚÁ¬½ÓÖĞÊ¹ÓÃ¾Û¼¯º¯Êı
+--- æœ¬ç« å­¦ä¹ å…¶å®ƒçš„è¿æ¥æ–¹å¼(ä¸Šä¸€èŠ‚å­¦ä¹ çš„è¿æ¥å…¶å®ç§°å†…è¿æ¥),è¿˜å­¦ä¹ åœ¨è¿æ¥ä¸­ä½¿ç”¨èšé›†å‡½æ•°
 
---- ÔÚµÚ7½ÚÖĞÊ¹ÓÃÁĞ±ğÃû£¬ÎÒÃÇÒ²¿ÉÒÔÊ¹ÓÃ±í±ğÃû(¿ÉÒÔËõ¶ÌsqlÓï¾ä)
-    --- ÓÃÉÏÒ»¿ÎµÄÀı×Ó£¬Çó¶©¹ºÁËRGAN01ÕâÖÖÉÌÆ·µÄËùÓĞ¹Ë¿Í
+--- åœ¨ç¬¬7èŠ‚ä¸­ä½¿ç”¨åˆ—åˆ«åï¼Œæˆ‘ä»¬ä¹Ÿå¯ä»¥ä½¿ç”¨è¡¨åˆ«å(å¯ä»¥ç¼©çŸ­sqlè¯­å¥)
+    --- ç”¨ä¸Šä¸€è¯¾çš„ä¾‹å­ï¼Œæ±‚è®¢è´­äº†RGAN01è¿™ç§å•†å“çš„æ‰€æœ‰é¡¾å®¢
 select cust_id from Orders as O,OrderItems as OI  where  O.order_num=OI.order_num and OI.prod_id = 'RGAN01';
 
 
---- 1.×ÔÁ¬½Ó
-    --- ÎÊÌâ£¬Òª¸øJim JonesÍ¬Ò»¹«Ë¾µÄËùÓĞ¹Ë¿Í·¢ËÍÒ»·âÓÊ¼ş
+--- 1.è‡ªè¿æ¥
+    --- é—®é¢˜ï¼Œè¦ç»™Jim JonesåŒä¸€å…¬å¸çš„æ‰€æœ‰é¡¾å®¢å‘é€ä¸€å°é‚®ä»¶
 
 
-    --- ×¢Òâ£¬ÕâÀïµÄ FUN4ALL Ó¦¸ÃÊÇ¹«Ë¾µÄÃû×Ö£¬¶ø¶ÔÓÚµÄJim Jones¡¡ºÍ Denise L ²ÅÊÇÕæÕıµÄ¹ºÎïÕß
+    --- æ³¨æ„ï¼Œè¿™é‡Œçš„ FUN4ALL åº”è¯¥æ˜¯å…¬å¸çš„åå­—ï¼Œè€Œå¯¹äºçš„Jim Jonesã€€å’Œ Denise L æ‰æ˜¯çœŸæ­£çš„è´­ç‰©è€…
 ---   mysql> select * from Customers;
 
 --    +------------+---------------+----------------------+-----------+------------+----------+--------------+--------------------+-----------------------+
@@ -23,39 +23,39 @@ select cust_id from Orders as O,OrderItems as OI  where  O.order_num=OI.order_nu
 --    +------------+---------------+----------------------+-----------+------------+----------+--------------+--------------------+-----------------------+
 
 
-    --- ÓÃÇ°ÃæÑ§¹ıµÄ×Ó²éÑ¯µÄ·½·¨¿ÉÒÔÊµÏÖ
+    --- ç”¨å‰é¢å­¦è¿‡çš„å­æŸ¥è¯¢çš„æ–¹æ³•å¯ä»¥å®ç°
     select cust_name from Customers where cust_name = (select cust_name from Customers where cust_contact = 'Jim Jones');
 
-    --- Ê¹ÓÃ±¾½ÚµÄ×ÓÁ¬½ÓµÄ·½·¨,ËüÊµ¼ÊÉÏ¸úÉÏÒ»½ÚµÄÁ¬½Ó²î²»¶à¡£Ö»²»¹ıÊÇÔÚÒ»ÕÅ±íÖĞÁË¡£µ«ÊÇÄã°ÑËü¿´×öÁ½ÕÅ±í¼´¿É¡£
+    --- ä½¿ç”¨æœ¬èŠ‚çš„å­è¿æ¥çš„æ–¹æ³•,å®ƒå®é™…ä¸Šè·Ÿä¸Šä¸€èŠ‚çš„è¿æ¥å·®ä¸å¤šã€‚åªä¸è¿‡æ˜¯åœ¨ä¸€å¼ è¡¨ä¸­äº†ã€‚ä½†æ˜¯ä½ æŠŠå®ƒçœ‹åšä¸¤å¼ è¡¨å³å¯ã€‚
      select Customers.cust_name  from Customers where Customers.cust_name = Customers.cust_name and Customers.cust_contact ='Jim Jones';
 
 
-    --- 2. ÍâÁ¬½Ó
-    ---  ¼ìË÷custoerms±íÖĞËùÓĞ¹Ë¿Í¼°Æä¶©µ¥,
+    --- 2. å¤–è¿æ¥
+    ---  æ£€ç´¢custoermsè¡¨ä¸­æ‰€æœ‰é¡¾å®¢åŠå…¶è®¢å•,
 
-    -- ÄÚÁ¬½Ó(¼ìË÷½á¹û²»ÕıÈ·£¬Îª¿ÕµÄ¼ìË÷²»³öÀ´)
+    -- å†…è¿æ¥(æ£€ç´¢ç»“æœä¸æ­£ç¡®ï¼Œä¸ºç©ºçš„æ£€ç´¢ä¸å‡ºæ¥)
     select Customers.cust_id ,Orders.order_num from Customers,Orders where Orders.cust_id=Customers.cust_id;
-            ---½»»¥¡®=¡¯Á½±ßµÄÖµÒ²Ã»ÓĞĞ§¹û
+            ---äº¤äº’â€˜=â€™ä¸¤è¾¹çš„å€¼ä¹Ÿæ²¡æœ‰æ•ˆæœ
     select Customers.cust_id ,Orders.order_num from Customers,Orders where Customers.cust_id = Orders.cust_id;
 
-    --- Íâ×óÁ¬½Ó(½á¹ûÕıÈ·!ËûÊÇÒÔcustoerms±íÎª±ê×¼)
+    --- å¤–å·¦è¿æ¥(ç»“æœæ­£ç¡®!ä»–æ˜¯ä»¥custoermsè¡¨ä¸ºæ ‡å‡†)
     select Customers.cust_id ,Orders.order_num from Customers LEFT OUTER JOIN Orders ON  Orders.cust_id=Customers.cust_id;
 
-    --- ÍâÓÒÁ¬½Ó(¼ìË÷½á¹û²»ÕıÈ·£¬Îª¿ÕµÄ¼ìË÷²»³öÀ´,ÒòÎªËüÊÇÒÔÓÒ±ßµÄOrderÎª±ê×¼
+    --- å¤–å³è¿æ¥(æ£€ç´¢ç»“æœä¸æ­£ç¡®ï¼Œä¸ºç©ºçš„æ£€ç´¢ä¸å‡ºæ¥,å› ä¸ºå®ƒæ˜¯ä»¥å³è¾¹çš„Orderä¸ºæ ‡å‡†
     select Customers.cust_id ,Orders.order_num from Customers RIGHT  OUTER JOIN Orders ON  Orders.cust_id=Customers.cust_id;
 
-     ---3.È«Á¬½Ó
-        --- È«Á¬½ÓÏàµ±ÓÚleftºÍrightµÄ×ÜºÍ(mysql²»Ö§³Ö)
+     ---3.å…¨è¿æ¥
+        --- å…¨è¿æ¥ç›¸å½“äºleftå’Œrightçš„æ€»å’Œ(mysqlä¸æ”¯æŒ)
          select Customers.cust_id ,Orders.order_num from Customers FULL OUTER JOIN Orders ON  Orders.cust_id=Customers.cust_id;
 
 
-        --- 4.Á¬½ÓÓë¾Û¼¯º¯ÊıµÄ½áºÏ
-            --- Òª¼ìË÷ËùÓĞÃ¿¸ö¹Ë¿ÍÏÂµÄ¶©µ¥Êı ,Õâ¸öÇ°ÃæÒÑ¾­×ö¹ıÁË
+        --- 4.è¿æ¥ä¸èšé›†å‡½æ•°çš„ç»“åˆ
+            --- è¦æ£€ç´¢æ‰€æœ‰æ¯ä¸ªé¡¾å®¢ä¸‹çš„è®¢å•æ•° ,è¿™ä¸ªå‰é¢å·²ç»åšè¿‡äº†
 
-            --- Õâ¸öÊ¹ÓÃµÄÊÇÄÚÁ¬½Ó£¬²»Í³¼Æ¿ÕµÄ
+            --- è¿™ä¸ªä½¿ç”¨çš„æ˜¯å†…è¿æ¥ï¼Œä¸ç»Ÿè®¡ç©ºçš„
             select cust_name ,count(*) from Orders,Customers  where Orders.cust_id = Customers.cust_id group by Customers.cust_id;
         
-            --- ÍâÁ¬£¬Í³¼Æ¿ÕµÄ
+            --- å¤–è¿ï¼Œç»Ÿè®¡ç©ºçš„
 
         
 

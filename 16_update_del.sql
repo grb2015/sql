@@ -1,19 +1,19 @@
---- ĞŞ¸Ä±íÖĞµÄÊı¾İ¡£É¾³ı/Ôö¼Ó±íÖĞµÄÄ³Ò»ĞĞ/ÁĞ
+--- ä¿®æ”¹è¡¨ä¸­çš„æ•°æ®ã€‚åˆ é™¤/å¢åŠ è¡¨ä¸­çš„æŸä¸€è¡Œ/åˆ—
 
---- update:  ¸ø100000005Ôö¼Óµç×ÓÓÊ¼ş
+--- update:  ç»™100000005å¢åŠ ç”µå­é‚®ä»¶
     update Customers  set cust_email='kim@thetoystore.com'where cust_id = '1000000005';
-    ---        È¡Ïû¸ø100000005Ôö¼Óµç×ÓÓÊ¼ş
+    ---        å–æ¶ˆç»™100000005å¢åŠ ç”µå­é‚®ä»¶
     update Customers  set cust_email=NULL where cust_id = '1000000005';
 
----delete  É¾³ı100000006ÕâÒ»ĞĞ
+---delete  åˆ é™¤100000006è¿™ä¸€è¡Œ
     delete from Customers where cust_id = '1000000006';
 
---- Ôö¼ÓÒ»ÁĞ
+--- å¢åŠ ä¸€åˆ—
 
 create table vendors_copy as select * from Vendors;
 alter table vendors_copy add vend_phone char(20);
 
----É¾³ıÒ»ÁĞ
+---åˆ é™¤ä¸€åˆ—
 alter table vendors_copy drop column vend_phone;
 
 

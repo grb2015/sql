@@ -1,2 +1,2 @@
---- 如何执行一个sql脚本
+--- 濡備綍鎵ц涓�涓猻ql鑴氭湰
 source /root/github/sql/4-where.sql

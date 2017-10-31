@@ -1,22 +1,22 @@
----ÉÏÒ»½ÚÖĞÓÃ×Ó²éÑ¯
-    --- 1.Çó¶©¹ºÁËRGAN01ÕâÖÖÉÌÆ·µÄËùÓĞ¹Ë¿Í
-    --- 2.ÇóCustomers±íÖĞÃ¿¸ö¿Í»§µÄ¶©µ¥×ÜÊıºÍ
+---ä¸Šä¸€èŠ‚ä¸­ç”¨å­æŸ¥è¯¢
+    --- 1.æ±‚è®¢è´­äº†RGAN01è¿™ç§å•†å“çš„æ‰€æœ‰é¡¾å®¢
+    --- 2.æ±‚Customersè¡¨ä¸­æ¯ä¸ªå®¢æˆ·çš„è®¢å•æ€»æ•°å’Œ
 
-   ---ÊµÏÖµÃ±È½Ï²»·½±ã£¬ÕâÀïÊ¹ÓÃÁª½á
+   ---å®ç°å¾—æ¯”è¾ƒä¸æ–¹ä¾¿ï¼Œè¿™é‡Œä½¿ç”¨è”ç»“
 
-    --- 1. ÉÏÒ»½ÚµÄ×Ó²éÑ¯ÊµÏÖ   
+    --- 1. ä¸Šä¸€èŠ‚çš„å­æŸ¥è¯¢å®ç°   
             select cust_id from Orders where order_num IN (select order_num from OrderItems where prod_id = 'RGAN01');
 
-    ---    ±¾½ÚµÄÁ¬½ÓÊµÏÖ  
-                                                     ---¡¡ÎÒÀí½â£¬ÕâÀïµÄorder_num¾ÍÊÇÁ¬½ÓµÄ×Ö¶Î    ---È»ºóOrderIterms±íÖĞµÄprod_id¾ÍÊÇÔÚÁíÒ»²àµÄ±íÖĞ½øĞĞÉ¸Ñ¡
+    ---    æœ¬èŠ‚çš„è¿æ¥å®ç°  
+                                                     ---ã€€æˆ‘ç†è§£ï¼Œè¿™é‡Œçš„order_numå°±æ˜¯è¿æ¥çš„å­—æ®µ    ---ç„¶åOrderItermsè¡¨ä¸­çš„prod_idå°±æ˜¯åœ¨å¦ä¸€ä¾§çš„è¡¨ä¸­è¿›è¡Œç­›é€‰
             select cust_id from Orders ,OrderItems  where  Orders.order_num=OrderItems.order_num and OrderItems.prod_id = 'RGAN01';
 
-    --- 2. ÉÏÒ»½ÚµÄ×Ó²éÑ¯ÊµÏÖ   
+    --- 2. ä¸Šä¸€èŠ‚çš„å­æŸ¥è¯¢å®ç°   
             select cust_name ,(select count(*) from Orders where Orders.cust_id = Customers.cust_id) from Customers;
-    ---    ±¾½ÚµÄÁ¬½ÓÊµÏÖ  
-                --Õâ¸ö»¹²»ÔõÃ´ºÃÅª!Áô¸øÒÔºó.¿´ÁËÁ¬½ÓÖĞÊ¹ÓÃ¾Û¼¯º¯Êı¿ÉÒÔ½â¾öÁË:
+    ---    æœ¬èŠ‚çš„è¿æ¥å®ç°  
+                --è¿™ä¸ªè¿˜ä¸æ€ä¹ˆå¥½å¼„!ç•™ç»™ä»¥å.çœ‹äº†è¿æ¥ä¸­ä½¿ç”¨èšé›†å‡½æ•°å¯ä»¥è§£å†³äº†:
 
-                --- ×¢ÒâÕâ¸ö²»Í³¼Æ¿ÕµÄ£¬ÒªÍ³¼Æ¿ÕµÄÒªÍ¨¹ıÍâÁ¬
+                --- æ³¨æ„è¿™ä¸ªä¸ç»Ÿè®¡ç©ºçš„ï¼Œè¦ç»Ÿè®¡ç©ºçš„è¦é€šè¿‡å¤–è¿
 
                 select cust_name ,count(*) from Orders,Customers  where Orders.cust_id = Customers.cust_id group by Customers.cust_id;
 
@@ -24,17 +24,17 @@
 
 
 ---------------------------------------------------------------------------------------------------
---- ±¾½ÚÑ§Ï°Áª½á
+--- æœ¬èŠ‚å­¦ä¹ è”ç»“
    
 
----example1 ´òÓ¡³öProducts±íÖĞÃ¿¼şÉÌÆ·µÄ¹©Ó¦ÉÌµÄÃû×Ö£¬Ã¿¼şÉÌÆ·µÄÃû×Ö¡¢¼Û¸ñ
+---example1 æ‰“å°å‡ºProductsè¡¨ä¸­æ¯ä»¶å•†å“çš„ä¾›åº”å•†çš„åå­—ï¼Œæ¯ä»¶å•†å“çš„åå­—ã€ä»·æ ¼
 select vend_name,prod_name,prod_price from Vendors,Products where Vendors.vend_id = Products.vend_id;
 
 ---example 2  
-        --- 1.ÏÔÊ¾¶©µ¥20007ÖĞµÄËùÓĞÎïÆ·¼°Æä¼Û¸ñ (ÕâÀïµÄ20007Ğ´³É'20007'Ò²¿ÉÒÔ,selectÖĞµÄprod_idÒª¼ÓÏŞ¶¨)
+        --- 1.æ˜¾ç¤ºè®¢å•20007ä¸­çš„æ‰€æœ‰ç‰©å“åŠå…¶ä»·æ ¼ (è¿™é‡Œçš„20007å†™æˆ'20007'ä¹Ÿå¯ä»¥,selectä¸­çš„prod_idè¦åŠ é™å®š)
     select prod_name,prod_price,Products.prod_id from Products,OrderItems where Products.prod_id = OrderItems.prod_id  and order_num=20007;
 
-        --- 2.ÏÔÊ¾¶©µ¥20007ÖĞµÄËùÓĞÎïÆ·¡¢¼Û¸ñ¼°Æä¹©»õÉÌÃû
+        --- 2.æ˜¾ç¤ºè®¢å•20007ä¸­çš„æ‰€æœ‰ç‰©å“ã€ä»·æ ¼åŠå…¶ä¾›è´§å•†å
     select prod_name,prod_price ,  Vendors.vend_name from Products,OrderItems,Vendors  where Products.prod_id = OrderItems.prod_id  and order_num=20007 and Vendors.vend_id=Products.vend_id;
 
 
