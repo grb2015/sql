@@ -38,7 +38,9 @@ select cust_id from Orders as O,OrderItems as OI  where  O.order_num=OI.order_nu
             ---交互‘=’两边的值也没有效果
     select Customers.cust_id ,Orders.order_num from Customers,Orders where Customers.cust_id = Orders.cust_id;
 
-    --- 外左连接(结果正确!他是以custoerms表为标准)
+    --- 外左连接(结果正确!他是以custoerms表为标准,交换'='两边无所谓，主要是看Customers LEFT OUTER JOIN Orders
+    --          这里有个记忆方法，出现left的就以左边的表为表中，出现right的就右边。
+            -- )
     select Customers.cust_id ,Orders.order_num from Customers LEFT OUTER JOIN Orders ON  Orders.cust_id=Customers.cust_id;
 
     --- 外右连接(检索结果不正确，为空的检索不出来,因为它是以右边的Order为标准
