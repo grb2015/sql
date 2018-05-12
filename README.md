@@ -144,3 +144,6 @@ topics:
 
 mysql&gt; help MONTH
 </pre>
+
+4.如何使用mysql自动补全命令
+  使用mycli工具即可
