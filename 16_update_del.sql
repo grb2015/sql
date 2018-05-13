@@ -7,6 +7,10 @@
 
 ---delete  删除100000006这一行
     delete from Customers where cust_id = '1000000006';
+    
+    --rbguo added 20180513
+    清空表中数据 
+    delete from `12_company_info` where 1; --这里的1表示true.
 
 --- 增加一列
 
