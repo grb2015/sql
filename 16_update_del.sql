@@ -7,6 +7,11 @@
 
 ---delete  删除100000006这一行
     delete from Customers where cust_id = '1000000006';
+    
+    --rbguo added 20180513
+    1.清空表中数据 
+    delete from `12_company_info` where 1; --这里的1表示true.
+    2.如果要删除指定的行号的某行，mysql由于无法直接得到行号，所以还不太好操作
 
 --- 增加一列
 

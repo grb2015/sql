@@ -5,6 +5,10 @@
 
 insert into Customers(cust_id ,cust_name,cust_address,   cust_city,     cust_state,cust_zip)
             values('1000000006',       'Toy Land','123 Any Steet','New York',  'NY',       '11111');
+            
+ ---rbguo 2018513 added 
+ ---插入多行数据：
+ insert into table_name(col1,col2...) values (col1,col2,...),(col2,col2,...)
 
 
 --- 插入检索出的数据  --现需要将另一表CustNew中的顾客合并到customers中.

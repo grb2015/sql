@@ -1,0 +1,26 @@
+https://blog.csdn.net/k346k346/article/details/51887599
+https://blog.csdn.net/sinat_33925425/article/details/71774932
+
+create table sales (month int ,data int ,count_id varchar(20),dapart varchar(50),cost_iterm varchar(50),money float) ;
+load data local infile "/root/sales.txt" into table sales character set utf8;
+drop table  XX ;
+
+
+要注意：
+1.mycli工具好像无法执行下面的命令，需要直接使用 mysql -u root -p来登录执行。
+2.需要命名为txt格式，不能excel格式，不然导入不正确。
+create table sales (季度 varchar(10),订购日期 varchar(20),发票号 varchar(20),销售部门 varchar(20),销售人员 varchar(20),工单号 varchar(20),ERPCO号 varchar(20),所属区域 varchar(20),产品类型 varchar(20),数量 int,金额 float ,成本 float);
+
+load data local infile "/root/sales.txt" into table sales character set utf8;
+
+
+
+
+load data local infile "/root/github/sql/process_excel/12_student_score.txt" into table 12_student_score  character set utf8;
+
+
+
+load data local infile "/root/github/sql/process_excel/12_company_info.txt" into table 12_company_info   character  set utf8 ; 
+load data local infile "/root/github/sql/process_excel/12_company_info_1.txt" into table 12_company_info_1   character  set utf8 ; 
+
+  select 12_company_info.`客户ID`  ,12_company_info.`公司名称`  from `12_company_info_1`,`12_company_info`  where 12_company_info.客户ID = 12_company_info_1.客户ID;
