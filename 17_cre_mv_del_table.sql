@@ -1,6 +1,6 @@
---- ´´½¨ ¡¢É¾³ý¡¢ÖØÃüÃû±í
+--- åˆ›å»º ã€åˆ é™¤ã€é‡å‘½åè¡¨
 
----´´½¨±í £¬¿ÉÒÔÖ¸¶¨Ä¬ÈÏÖµ
+---åˆ›å»ºè¡¨ ï¼Œå¯ä»¥æŒ‡å®šé»˜è®¤å€¼
 CREATE TABLE Products2
 (
   prod_id    char(10)      NOT NULL ,
@@ -10,10 +10,12 @@ CREATE TABLE Products2
   prod_desc  text          NULL 
 );
 
---- É¾³ý±í
+--- åˆ é™¤è¡¨
 drop table Customers;
----ÖØÃüÃû±í
+---é‡å‘½åè¡¨
 
 rename table CustCopy to Customers;
 
-
+//rbguo added 20180515
+å¤åˆ¶è¡¨ï¼š
+CREATE TABLE æ–°è¡¨ SELECT * FROM æ—§è¡¨

@@ -19,5 +19,15 @@
    | 周阚   | 44   | 32   | 45   | 67   | 60   | 61   | <null>     | <null> |
    | 王启   | 77   | 98   | 28   | 45   | 70   | 85   | <null>     | <null> |
    +--------+------+------+------+------+------+------+------------+--------+
+   
+   
+   几种思考：
+   update 9_studen_exemple_count_if  set  英语 =  replace(英语,0,null);  这样的话90也会被替换为null 不符合。
+   replace一般用于字符串
+   这样：
+   update 9_studen_exemple_count_if  set  英语=null where 英语 = 0;
+   然后
+   update 9_studen_exemple_count_if  set  化学=null where 化学 = 0;
+   一行一行的替换和麻烦。需要自动替换
 2.
    使用sql如何计算参加考试数和及格数这2列呢?
