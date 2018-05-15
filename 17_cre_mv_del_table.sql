@@ -18,5 +18,4 @@ rename table CustCopy to Customers;
 
 //rbguo added 20180515
 复制表：
-1、原表存在的话这样用：insert into a select * from b
-2、原表不存在的话这样用：select * into a from b
+CREATE TABLE 新表 SELECT * FROM 旧表
