@@ -42,16 +42,16 @@ def excute_sql_del_insert(sql_string):
 window = tk.Tk()
 window.title("Perter's store manager system")
 window.geometry('200x200')
-def show_itmes(iterms):
+def show_itmes(iterms,table_name):
 	t.insert('end', '--------------------------------------------\n\n')
-	show_columns("customers")
+	show_columns(table_name)
 	for iterm in iterms:
 		t.insert('end', iterm)		## rbguo added end代表在文件框的末尾输入e的值(而e来自于输入框)
 		t.insert('end', '\n\n')
 def select_table(table_name):
 	sql_str = "SELECT * FROM %s" %(table_name)
 	iterms = excute_sql(sql_str)
-	show_itmes(iterms)
+	show_itmes(iterms,table_name)
 ## 需要注意的是,如果要删除的有外键，则无法删除，比如"DELETE from Customers where cust_id = '1000000001'"就无法删除，但是0002可以0006也可以
 def delete_table(table_name):
 	#insert_string = "DELETE from Customers where cust_id = '1000000001'"
@@ -94,10 +94,26 @@ b5 = tk.Button(window, text='查看订单详情信息',
                command=lambda: select_table(table_name ="orderitems"))
 b6 = tk.Button(window, text='清除屏幕',
                command=clean_screen,bg = "red")
-b21 = tk.Button(window, text='删除顾客信息',
+b21 = tk.Button(window, text='删除顾客',
                command=lambda: delete_table(table_name ="customers"))
-b31 = tk.Button(window, text='增加顾客信息',
+b31 = tk.Button(window, text='增加顾客',
                command=lambda: insert_table(table_name ="customers"))
+
+b22 = tk.Button(window, text='删除供应商',
+               command=lambda: delete_table(table_name ="customers"))
+b32 = tk.Button(window, text='增加供应商',
+
+               command=lambda: insert_table(table_name ="customers"))
+b23 = tk.Button(window, text='删除订单',
+               command=lambda: delete_table(table_name ="customers"))
+b33= tk.Button(window, text='增加订单',
+               command=lambda: insert_table(table_name ="customers"))
+
+b24 = tk.Button(window, text='删除产品',
+               command=lambda: delete_table(table_name ="customers"))
+b34 = tk.Button(window, text='增加产品',
+               command=lambda: insert_table(table_name ="customers"))
+
 b1.place(x=0, y=0)
 b2.place(x=200, y=0)
 b3.place(x=400, y=0)
@@ -107,6 +123,22 @@ b6.place(x=1000, y=0)
 
 b21.pack(side = tk.LEFT)
 b31.pack(side = tk.LEFT)
+
+b22.place(x=0, y=100)
+b32.place(x=70, y=100)
+
+b23.place(x=0, y=200)
+b33.place(x=70, y=200)
+
+b24.place(x=0, y=400)
+b34.place(x=70, y=400)
+'''
+b32.pack(side = tk.RIGHT)
+b23.pack(side = tk.TOP)
+b33.pack(side = tk.TOP)
+b24.pack(side = tk.LEFT)
+b34.pack(side = tk.LEFT)
+'''
 '''
 b1.pack()
 b1.pack(side = tk.LEFT)
