@@ -19,6 +19,7 @@ http://forta.com/books/0672336073/TeachYourselfSQL_MySQL.zip
 执行脚本：
 mysql&gt; source /root/github/sql/src/create.txt (`要注意，这个是在mysql登录进去的命令行中，而不是直接在linux的命令行下执行!`)
 
+也可以把create.txt 里面的内容复制下来，在Navicat中执行新建查询，然后粘贴sql执行。
 
 
 
