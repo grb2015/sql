@@ -24,6 +24,12 @@ alter table vendors_copy drop column vend_phone;
 
 
 
+guo added 21091009:
+补充1：
+要设置某一列的值为1,
+UPDATE `jcimate_alarm_rules`.`tbl_attribute` SET `complex_operate_id`='1'  
+需要注意的是,Mysql中必须跟一个where条件，不然会说不安全而报错，要取消报错可以运行下面的：
+SET SQL_SAFE_UPDATES=0;
 
 --
 
